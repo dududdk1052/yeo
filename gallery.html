@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery · Yeo Yeoung-A Art</title>
+  <meta name="description" content="Browse original paintings by Yeo Yeoung-A — Western fine art from Dublin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Gallery placeholders */
+    .gp { width:100%; display:block; border-radius:2px; }
+    .gp-1  { aspect-ratio:4/5;  background:linear-gradient(135deg,#E8D5C4,#C4A882); }
+    .gp-2  { aspect-ratio:3/4;  background:linear-gradient(145deg,#D9CCBC,#A89070); }
+    .gp-3  { aspect-ratio:5/4;  background:linear-gradient(125deg,#C8B8A2,#987860); }
+    .gp-4  { aspect-ratio:1/1;  background:linear-gradient(155deg,#DDD0C4,#B8A090); }
+    .gp-5  { aspect-ratio:4/5;  background:linear-gradient(165deg,#E4D8CC,#C0A888); }
+    .gp-6  { aspect-ratio:3/2;  background:linear-gradient(135deg,#D8CCBE,#B09878); }
+    .gp-7  { aspect-ratio:2/3;  background:linear-gradient(145deg,#E0D2C4,#BAA080); }
+    .gp-8  { aspect-ratio:4/3;  background:linear-gradient(125deg,#DCCEC0,#B49878); }
+    .gp-9  { aspect-ratio:5/6;  background:linear-gradient(155deg,#E8DAD0,#C8A880); }
+    .gp-label {
+      position:absolute; bottom:0; left:0; right:0;
+      padding:0.5rem; text-align:center;
+      font-family:var(--font-serif); font-style:italic;
+      color:rgba(122,92,68,0.5); font-size:0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Yeo <span>Yeoung-A</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#studio">Studio</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="shop.html" class="cart-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count hidden">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Works on Canvas & Linen</span>
+    <h1>The Gallery</h1>
+    <p>Oil and acrylic paintings — each one a singular moment, caught and held.</p>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section class="section-sm" style="padding-top:0;">
+  <div class="container">
+
+    <!-- Masonry Gallery -->
+    <div class="gallery-masonry" id="gallery-masonry">
+
+      <div class="gallery-item" data-category="landscape"
+        data-id="g1" data-title="The Dublin Hills at Dusk"
+        data-medium="Oil on canvas · 70×90cm · 2024"
+        data-price="780" data-sold="false"
+        data-desc="Rolling hills caught in the last light of evening — painted from memory on a long winter afternoon in the studio."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-1"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>The Dublin Hills at Dusk</h4>
+          <span>Oil · €780</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="still-life"
+        data-id="g2" data-title="Morning Table"
+        data-medium="Acrylic on linen · 50×60cm · 2024"
+        data-price="520" data-sold="false"
+        data-desc="A table set for morning — the kind of quiet that exists just before the house wakes up."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-2"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>Morning Table</h4>
+          <span>Acrylic · €520</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="figure"
+        data-id="g3" data-title="Reverie"
+        data-medium="Oil on canvas · 60×80cm · 2023"
+        data-price="0" data-sold="true"
+        data-desc="A moment of inner stillness — the painting that marked a turning point in how I approach the human figure."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-3"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>Reverie</h4>
+          <span>Oil · SOLD</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="landscape"
+        data-id="g4" data-title="Wicklow Shore"
+        data-medium="Acrylic on canvas · 80×100cm · 2024"
+        data-price="920" data-sold="false"
+        data-desc="The Wicklow coastline on a grey-bright morning — painted en plein air and finished in studio."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-4"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>Wicklow Shore</h4>
+          <span>Acrylic · €920</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="still-life"
+        data-id="g5" data-title="Persimmon"
+        data-medium="Oil on board · 30×30cm · 2024"
+        data-price="280" data-sold="false"
+        data-desc="A single persimmon — the fruit of Korean autumn, painted in the grey light of Irish winter."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-5"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>Persimmon</h4>
+          <span>Oil · €280</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="figure"
+        data-id="g6" data-title="Between Two Worlds"
+        data-medium="Acrylic on linen · 90×120cm · 2023"
+        data-price="0" data-sold="true"
+        data-desc="The experience of belonging fully to two cultures and yet being slightly foreign in each one."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-6"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>Between Two Worlds</h4>
+          <span>Acrylic · SOLD</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="landscape"
+        data-id="g7" data-title="Canal Walk"
+        data-medium="Oil on canvas · 60×70cm · 2025"
+        data-price="650" data-sold="false"
+        data-desc="Dublin's Grand Canal in late autumn — the water holding the memory of leaves."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-7"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>Canal Walk</h4>
+          <span>Oil · €650</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="still-life"
+        data-id="g8" data-title="White Flowers"
+        data-medium="Acrylic on board · 40×40cm · 2025"
+        data-price="340" data-sold="false"
+        data-desc="White flowers against a warm background — simplicity as a form of devotion."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-8"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>White Flowers</h4>
+          <span>Acrylic · €340</span>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-category="figure"
+        data-id="g9" data-title="The Reading"
+        data-medium="Oil on canvas · 50×70cm · 2025"
+        data-price="590" data-sold="false"
+        data-desc="A child absorbed in a book — painted from life in the studio, during kids class."
+        onclick="openGalleryItem(this)">
+        <div class="gp gp-9"></div>
+        <div class="gp-label">Upload your artwork</div>
+        <div class="gallery-item-caption">
+          <h4>The Reading</h4>
+          <span>Oil · €590</span>
+        </div>
+      </div>
+
+    </div><!-- /gallery-masonry -->
+  </div>
+</section>
+
+<!-- Commission CTA -->
+<section class="section-sm" style="background:var(--warm-white);">
+  <div class="container text-center">
+    <span class="subtext">Don't see exactly what you're looking for?</span>
+    <h2 style="margin:0.75rem 0 1rem;">Commission an Original</h2>
+    <p style="max-width:500px;margin:0 auto 2rem;color:var(--brown-mid);">
+      I take a small number of commissions each year. Tell me what you have in mind.
+    </p>
+    <a href="about.html#commission" class="btn btn-primary">
+      <i class="fa-solid fa-envelope"></i> Get in Touch
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Yeo <span>Yeoung-A</span></a>
+        <p>Original paintings and art studio based in Dublin, Ireland.</p>
+        <div class="social-links" style="margin-top:1.5rem;">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop Originals</a>
+        <a href="about.html">About</a>
+        <a href="about.html#studio">Studio</a>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <a href="about.html#studio">Classes</a>
+        <a href="about.html#commission">Commissions</a>
+        <a href="about.html#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Yeo Yeoung-A Art. All rights reserved.</span>
+      <span>Dublin, Ireland</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <div class="lightbox-img">
+      <img src="" alt="">
+    </div>
+    <div class="lightbox-info">
+      <h3></h3>
+      <p class="medium"></p>
+      <p></p>
+      <div class="lightbox-price"></div>
+      <button class="btn btn-primary btn-add-lightbox">
+        <i class="fa-solid fa-bag-shopping"></i> Add to Cart
+      </button>
+      <a href="shop.html" class="btn btn-outline" style="margin-top:0.75rem;">
+        Go to Shop
+      </a>
+    </div>
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast"></div>
+
+<script src="js/cart.js"></script>
+<script>
+  // Open gallery item in lightbox
+  function openGalleryItem(el) {
+    // find the color placeholder as "image" proxy
+    const data = {
+      id: el.dataset.id,
+      title: el.dataset.title,
+      medium: el.dataset.medium,
+      price: el.dataset.price,
+      sold: el.dataset.sold === 'true',
+      description: el.dataset.desc,
+      image: ''
+    };
+    // Use the placeholder div background as a data URL workaround: just clear image
+    const lb = document.getElementById('lightbox');
+    lb.querySelector('.lightbox-img').innerHTML = el.querySelector('.gp').outerHTML.replace(/class="gp /, 'style="width:100%;height:100%;border-radius:0;" class="gp ');
+    lb.querySelector('h3').textContent = data.title;
+    lb.querySelector('.medium').textContent = data.medium;
+    lb.querySelector('p:not(.medium)').textContent = data.description;
+    lb.querySelector('.lightbox-price').textContent = data.sold ? 'SOLD' : '€' + parseFloat(data.price).toLocaleString();
+    const addBtn = lb.querySelector('.btn-add-lightbox');
+    addBtn.style.display = data.sold ? 'none' : 'inline-flex';
+    addBtn.onclick = () => Cart.add(data);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+</script>
+</body>
+</html>

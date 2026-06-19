@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop · Yeo Yeoung-A Art</title>
+  <meta name="description" content="Buy original paintings by Yeo Yeoung-A — each one a unique, signed original.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Artwork placeholders */
+    .ap { width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-serif);font-style:italic;color:rgba(122,92,68,0.45);font-size:0.85rem; }
+    .ap-1{background:linear-gradient(135deg,#E8D5C4,#C4A882);}
+    .ap-2{background:linear-gradient(145deg,#D4C5B8,#A89080);}
+    .ap-3{background:linear-gradient(135deg,#C8B8A2,#9A8070);}
+    .ap-4{background:linear-gradient(145deg,#DDD0C4,#B8A090);}
+    .ap-5{background:linear-gradient(135deg,#E4D8CC,#C0A888);}
+    .ap-6{background:linear-gradient(145deg,#D8CCBE,#B09878);}
+    .ap-7{background:linear-gradient(135deg,#E0D2C4,#BAA080);}
+
+    .trust-strip {
+      background: var(--brown-dark);
+      padding: 1.2rem 0;
+    }
+    .trust-items {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(250,247,242,0.75);
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+    }
+    .trust-item i { color: var(--terracotta); }
+
+    .shop-header-area {
+      padding: 9rem 0 3rem;
+      background: linear-gradient(180deg,rgba(196,113,75,0.06) 0%,transparent 100%);
+    }
+    .shop-top {
+      display:flex; justify-content:space-between; align-items:flex-end;
+      margin-bottom: 2rem;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .shop-top h1 { margin-bottom: 0.3rem; }
+    .shop-top p { color: var(--brown-mid); font-size:0.95rem; }
+
+    .sort-select {
+      padding: 0.6rem 1.2rem;
+      border: 1.5px solid var(--border);
+      border-radius: 2rem;
+      background: var(--warm-white);
+      color: var(--brown-mid);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .cart-sidebar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .cart-sidebar-head h3 { margin-bottom: 0; border: none; padding: 0; }
+
+    .shipping-note {
+      background: rgba(196,113,75,0.08);
+      border-radius: var(--radius);
+      padding: 1rem;
+      font-size: 0.82rem;
+      color: var(--brown-mid);
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+    .shipping-note strong { color: var(--terracotta); }
+
+    .size-badge {
+      display: inline-block;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.75rem;
+      color: var(--brown-light);
+      letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Yeo <span>Yeoung-A</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#studio">Studio</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="shop.html" class="cart-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count hidden">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="container">
+    <div class="trust-items">
+      <span class="trust-item"><i class="fa-solid fa-certificate"></i> Signed Original</span>
+      <span class="trust-item"><i class="fa-solid fa-truck"></i> Shipped Worldwide</span>
+      <span class="trust-item"><i class="fa-solid fa-envelope-open-text"></i> Certificate of Authenticity</span>
+      <span class="trust-item"><i class="fa-solid fa-shield-halved"></i> Secure Checkout</span>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP HEADER -->
+<div class="shop-header-area">
+  <div class="container">
+    <div class="shop-top">
+      <div>
+        <h1>Shop Originals</h1>
+        <p>Each painting is signed, unique, and ships with a certificate of authenticity.</p>
+      </div>
+      <select class="sort-select" id="sort-select">
+        <option value="newest">Newest First</option>
+        <option value="price-asc">Price: Low → High</option>
+        <option value="price-desc">Price: High → Low</option>
+        <option value="available">Available Only</option>
+      </select>
+    </div>
+
+    <!-- SIZE FILTER -->
+    <div class="filter-bar" style="justify-content:flex-start;margin-bottom:0;">
+      <button class="filter-btn active" data-size="all">All Sizes</button>
+      <button class="filter-btn" data-size="small">Small <span style="font-weight:400;opacity:0.7;">· up to 40cm</span></button>
+      <button class="filter-btn" data-size="medium">Medium <span style="font-weight:400;opacity:0.7;">· 40–80cm</span></button>
+      <button class="filter-btn" data-size="large">Large <span style="font-weight:400;opacity:0.7;">· 80cm+</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT -->
+<section class="section" style="padding-top:1rem;">
+  <div class="container">
+    <div class="shop-layout">
+
+      <!-- PRODUCT GRID -->
+      <div class="shop-grid" id="product-grid">
+
+        <!-- Product 1 -->
+        <div class="work-card" data-price="780" data-sold="false" data-year="2024" data-size="large">
+          <div class="work-card-image">
+            <div class="ap ap-1">Your artwork</div>
+            <div class="work-card-overlay">
+              <button class="overlay-btn" title="Quick View" onclick="quickView('p1')">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="work-card-info">
+            <h4>The Dublin Hills at Dusk</h4>
+            <p class="medium">Oil on canvas <span class="size-badge">70×90cm</span></p>
+            <div class="work-card-price">
+              <span class="price">€780</span>
+              <button class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;"
+                onclick="Cart.add({id:'p1',title:'The Dublin Hills at Dusk',price:'780',image:''})">
+                <i class="fa-solid fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="work-card" data-price="520" data-sold="false" data-year="2024" data-size="medium">
+          <div class="work-card-image">
+            <div class="ap ap-2">Your artwork</div>
+            <div class="work-card-overlay">
+              <button class="overlay-btn" title="Quick View" onclick="quickView('p2')">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="work-card-info">
+            <h4>Morning Table</h4>
+            <p class="medium">Acrylic on linen <span class="size-badge">50×60cm</span></p>
+            <div class="work-card-price">
+              <span class="price">€520</span>
+              <button class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;"
+                onclick="Cart.add({id:'p2',title:'Morning Table',price:'520',image:''})">
+                <i class="fa-solid fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 — SOLD -->
+        <div class="work-card" data-price="0" data-sold="true" data-year="2023" data-size="medium">
+          <div class="work-card-image" style="opacity:0.7;">
+            <div class="ap ap-3">Your artwork</div>
+          </div>
+          <div class="work-card-info">
+            <h4>Reverie</h4>
+            <p class="medium">Oil on canvas <span class="size-badge">60×80cm</span></p>
+            <div class="work-card-price">
+              <span class="sold-badge">Sold</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="work-card" data-price="920" data-sold="false" data-year="2024" data-size="large">
+          <div class="work-card-image">
+            <div class="ap ap-4">Your artwork</div>
+            <div class="work-card-overlay">
+              <button class="overlay-btn" title="Quick View" onclick="quickView('p4')">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="work-card-info">
+            <h4>Wicklow Shore</h4>
+            <p class="medium">Acrylic on canvas <span class="size-badge">80×100cm</span></p>
+            <div class="work-card-price">
+              <span class="price">€920</span>
+              <button class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;"
+                onclick="Cart.add({id:'p4',title:'Wicklow Shore',price:'920',image:''})">
+                <i class="fa-solid fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="work-card" data-price="280" data-sold="false" data-year="2024" data-size="small">
+          <div class="work-card-image">
+            <div class="ap ap-5">Your artwork</div>
+            <div class="work-card-overlay">
+              <button class="overlay-btn" title="Quick View" onclick="quickView('p5')">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="work-card-info">
+            <h4>Persimmon</h4>
+            <p class="medium">Oil on board <span class="size-badge">30×30cm</span></p>
+            <div class="work-card-price">
+              <span class="price">€280</span>
+              <button class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;"
+                onclick="Cart.add({id:'p5',title:'Persimmon',price:'280',image:''})">
+                <i class="fa-solid fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="work-card" data-price="650" data-sold="false" data-year="2025" data-size="medium">
+          <div class="work-card-image">
+            <div class="ap ap-6">Your artwork</div>
+            <div class="work-card-overlay">
+              <button class="overlay-btn" title="Quick View" onclick="quickView('p6')">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="work-card-info">
+            <h4>Canal Walk</h4>
+            <p class="medium">Oil on canvas <span class="size-badge">60×70cm</span></p>
+            <div class="work-card-price">
+              <span class="price">€650</span>
+              <button class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;"
+                onclick="Cart.add({id:'p6',title:'Canal Walk',price:'650',image:''})">
+                <i class="fa-solid fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="work-card" data-price="340" data-sold="false" data-year="2025" data-size="small">
+          <div class="work-card-image">
+            <div class="ap ap-7">Your artwork</div>
+            <div class="work-card-overlay">
+              <button class="overlay-btn" title="Quick View" onclick="quickView('p7')">
+                <i class="fa-solid fa-expand"></i>
+              </button>
+            </div>
+          </div>
+          <div class="work-card-info">
+            <h4>White Flowers</h4>
+            <p class="medium">Acrylic on board <span class="size-badge">40×40cm</span></p>
+            <div class="work-card-price">
+              <span class="price">€340</span>
+              <button class="btn btn-primary" style="padding:0.45rem 1rem;font-size:0.78rem;"
+                onclick="Cart.add({id:'p7',title:'White Flowers',price:'340',image:''})">
+                <i class="fa-solid fa-plus"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /product-grid -->
+
+      <!-- CART SIDEBAR -->
+      <aside class="cart-sidebar">
+        <div class="cart-sidebar-head">
+          <h3><i class="fa-solid fa-bag-shopping" style="font-size:1rem;color:var(--terracotta);margin-right:0.5rem;"></i> Your Bag</h3>
+          <button onclick="Cart.clear()" style="font-size:0.78rem;color:var(--brown-light);letter-spacing:0.06em;" title="Clear cart">Clear</button>
+        </div>
+
+        <div class="cart-items">
+          <p class="cart-empty">Your bag is empty.</p>
+        </div>
+
+        <div class="cart-total" style="margin-top:1rem;">
+          <span>Total</span>
+          <span class="total-price">€0</span>
+        </div>
+
+        <button class="btn btn-primary btn-checkout" onclick="openCheckout()" disabled>
+          <i class="fa-solid fa-credit-card"></i> Enquire & Checkout
+        </button>
+
+        <div class="shipping-note">
+          <strong><i class="fa-solid fa-truck"></i> Shipping</strong><br>
+          All paintings ship worldwide, carefully packed and insured. Shipping cost calculated at checkout.
+        </div>
+      </aside>
+
+    </div><!-- /shop-layout -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Yeo <span>Yeoung-A</span></a>
+        <p>Original paintings and art studio based in Dublin, Ireland.</p>
+        <div class="social-links" style="margin-top:1.5rem;">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop Originals</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <a href="about.html#contact">Shipping Info</a>
+        <a href="about.html#contact">Returns</a>
+        <a href="about.html#commission">Commissions</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Yeo Yeoung-A Art. All rights reserved.</span>
+      <span>Dublin, Ireland</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkout-modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeCheckout()">✕</button>
+    <h3>Complete Your Order</h3>
+    <p style="color:var(--brown-mid);font-size:0.9rem;margin-bottom:1.5rem;">
+      I'll be in touch within 24 hours to confirm your purchase and arrange payment &amp; shipping.
+    </p>
+    <form class="checkout-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="name" placeholder="Your name" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="lastname" placeholder="Last name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="you@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Country / Region</label>
+        <input type="text" name="country" placeholder="e.g. Ireland, Germany, South Korea…">
+      </div>
+      <div class="form-group">
+        <label>Message (optional)</label>
+        <textarea name="message" placeholder="Any questions, gift wrapping requests, etc."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+        <i class="fa-solid fa-paper-plane"></i> Send Order Enquiry
+      </button>
+      <p class="form-note" style="text-align:center;margin-top:0.75rem;">
+        Payment details will be shared via email. All originals ship insured.
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast"></div>
+
+<script src="js/cart.js"></script>
+<script>
+  // Sort
+  document.getElementById('sort-select').addEventListener('change', function() {
+    const grid = document.getElementById('product-grid');
+    const cards = Array.from(grid.querySelectorAll('.work-card'));
+    const val = this.value;
+    cards.sort((a,b) => {
+      if (val === 'price-asc') return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
+      if (val === 'price-desc') return parseFloat(b.dataset.price) - parseFloat(a.dataset.price);
+      if (val === 'newest') return parseInt(b.dataset.year) - parseInt(a.dataset.year);
+      if (val === 'available') {
+        const as = a.dataset.sold === 'true' ? 1 : 0;
+        const bs = b.dataset.sold === 'true' ? 1 : 0;
+        return as - bs;
+      }
+      return 0;
+    });
+    cards.forEach(c => grid.appendChild(c));
+  });
+
+  // Size filter
+  document.querySelectorAll('[data-size-filter], .filter-bar [data-size]').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.filter-bar [data-size]').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      const size = this.dataset.size;
+      document.querySelectorAll('#product-grid .work-card').forEach(card => {
+        card.style.display = (size === 'all' || card.dataset.size === size) ? '' : 'none';
+      });
+    });
+  });
+
+  function quickView(id) {
+    showToast('View the full gallery for detailed information.');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Yeo Yeoung-A Art</title>
+  <meta name="description" content="The story of Yeo Yeoung-A — Korean artist, Dublin resident, and founder of Yeo Yeoung-A Art Studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .portrait-placeholder {
+      width:100%; aspect-ratio:3/4;
+      background:linear-gradient(160deg,#C8B4A0 0%,#8A6E58 100%);
+      border-radius:var(--radius);
+      display:flex; align-items:flex-end; justify-content:center;
+      padding-bottom:1.5rem;
+      font-family:var(--font-serif); font-style:italic;
+      color:rgba(255,255,255,0.6); font-size:0.9rem;
+    }
+    .process-img-placeholder {
+      width:100%; aspect-ratio:4/3;
+      border-radius:var(--radius);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-serif); font-style:italic;
+      color:rgba(122,92,68,0.45); font-size:0.88rem;
+    }
+    .pi-1{background:linear-gradient(135deg,#E8D5C4,#C4A882);}
+    .pi-2{background:linear-gradient(145deg,#D4C5B8,#A89080);}
+    .pi-3{background:linear-gradient(135deg,#C8B8A2,#9A8070);}
+
+    /* Bilingual bio */
+    .bio-bilingual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 1.5rem 0 2rem;
+      padding: 1.75rem;
+      background: rgba(139,110,154,0.04);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .bio-lang {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+    .bio-lang-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--terracotta);
+      border: 1.5px solid var(--terracotta);
+      padding: 0.15rem 0.55rem;
+      border-radius: 2rem;
+      margin-bottom: 0.25rem;
+      width: fit-content;
+    }
+    .bio-lang p {
+      font-size: 0.9rem;
+      color: var(--brown-mid);
+      line-height: 1.85;
+    }
+    [lang="ko"] p {
+      font-size: 0.88rem;
+      word-break: keep-all;
+    }
+    .bio-lang + .bio-lang {
+      border-left: 1px solid var(--border);
+      padding-left: 2rem;
+    }
+    @media (max-width: 768px) {
+      .bio-bilingual {
+        grid-template-columns: 1fr;
+      }
+      .bio-lang + .bio-lang {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-left: 0;
+        padding-top: 1.5rem;
+      }
+    }
+
+    .process-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+      gap:1.5rem;
+      margin-top:2rem;
+    }
+    .process-card {
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--border);
+    }
+    .process-card p {
+      padding:1rem 1.25rem;
+      font-size:0.9rem;
+      color:var(--brown-mid);
+    }
+
+    .studio-hero {
+      background: var(--brown-dark);
+      padding: 5rem 0;
+    }
+    .studio-hero-inner {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:4rem;
+      align-items:center;
+    }
+    .studio-hero h2 { color:var(--cream); margin-bottom:1rem; }
+    .studio-hero .eyebrow {
+      font-size:0.75rem; font-weight:600; letter-spacing:0.25em;
+      text-transform:uppercase; color:var(--dusty-rose);
+      display:block; margin-bottom:0.75rem;
+    }
+    .studio-hero p { color:rgba(250,247,242,0.72); line-height:1.85; }
+    .studio-main-img {
+      width:100%; aspect-ratio:4/3;
+      object-fit:cover;
+      border-radius:var(--radius);
+      display:block;
+    }
+    .studio-placeholder {
+      width:100%; aspect-ratio:4/3;
+      background:linear-gradient(135deg,#5A4535,#3D2B1F);
+      border-radius:var(--radius);
+      display:flex; align-items:center; justify-content:center;
+      color:rgba(250,247,242,0.3);
+      font-family:var(--font-serif); font-style:italic;
+    }
+
+    .class-detail {
+      border:1.5px solid var(--border);
+      border-radius:var(--radius);
+      padding:2rem;
+      background:var(--warm-white);
+    }
+    .class-detail h4 {
+      display:flex; align-items:center; gap:0.6rem;
+      margin-bottom:0.75rem;
+    }
+    .class-detail ul {
+      list-style: disc;
+      padding-left:1.2rem;
+      color:var(--brown-mid);
+      font-size:0.92rem;
+      line-height:1.8;
+    }
+    .class-detail .price-tag {
+      margin-top:1.2rem;
+      font-family:var(--font-serif);
+      font-size:1.4rem;
+      color:var(--terracotta);
+    }
+    .class-detail .price-tag small {
+      font-family:var(--font-sans);
+      font-size:0.8rem;
+      color:var(--brown-light);
+    }
+
+    .faq-item {
+      border-bottom:1px solid var(--border);
+      padding:1.5rem 0;
+    }
+    .faq-item h4 {
+      font-size:1rem; font-family:var(--font-sans); font-weight:600;
+      color:var(--brown-dark); cursor:pointer;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .faq-item p {
+      color:var(--brown-mid); font-size:0.92rem; line-height:1.8;
+      margin-top:0.75rem; display:none;
+    }
+    .faq-item.open p { display:block; }
+    .faq-item h4 i { transition:transform 0.3s; font-size:0.85rem; color:var(--terracotta); }
+    .faq-item.open h4 i { transform:rotate(180deg); }
+
+    @media(max-width:768px){
+      .studio-hero-inner{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Yeo <span>Yeoung-A</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="about.html#studio">Studio</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="shop.html" class="cart-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count hidden">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== ABOUT HERO ===== -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner">
+      <div class="about-hero-image">
+        <!-- Replace with your portrait photo -->
+        <div class="portrait-placeholder">Artist portrait — add your photo</div>
+      </div>
+
+      <div class="about-hero-text">
+        <span class="eyebrow" style="font-size:0.75rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--terracotta);display:block;margin-bottom:1rem;">
+          The Artist
+        </span>
+        <h1 style="margin-bottom:1.5rem;">Sixteen years —<br><em style="color:var(--terracotta);">still a stranger,<br>still here.</em></h1>
+
+        <!-- Bilingual bio -->
+        <div class="bio-bilingual">
+
+          <!-- English -->
+          <div class="bio-lang" lang="en">
+            <span class="bio-lang-tag">EN</span>
+            <p>I am Yeoung-A Yeo, a Korean painter living in Dublin, Ireland. In 2007, I came to Dublin on our honeymoon, following my husband's wish to be here. Somehow this city became the place where I grew into a mother of two, and where, for more than fifteen years, I have gone on living as a foreigner.</p>
+            <p>Compared to the dense, crowded days of Seoul — where my working life once was — this is a place with more pauses, more open space between things. Questions about what lies at the essence of things came naturally here. Perhaps it was precisely because I have lived as an outsider that I came to look more deeply at the relationships between one person and another.</p>
+            <p>In the landscape here, where the contrast of light can turn fierce and then, at times, fade until even the shadows are gone, I found myself watching the countless relations that surround us. The space where light gives rise to shade. The distance between us that the wind reveals as it passes through. The current that fish stir into the water, reaching somewhere far beyond them and leaving its mark there. Within all of these connections, I wanted to hold on to those supple, fleeting moments.</p>
+            <p>This is why I work in oil — a material of weight and density — to give form to that paradoxical suppleness: the fluid caught in the solid, the passing moment held still.</p>
+            <p>I am still looking, still thinking, in search of an image that can reveal, more deeply and more strongly, the simple truth that we are connected to one another.</p>
+          </div>
+
+          <!-- Korean -->
+          <div class="bio-lang" lang="ko">
+            <span class="bio-lang-tag">KO</span>
+            <p>나는 현재 아일랜드 더블린에 살고 있는 한국인 화가, 여영아다. 2007년, 신랑의 소망을 따라 허니문으로 찾은 더블린에서 어느새 두 아이의 엄마가 되었고, 15년이 넘는 시간 동안 여전히 이방인으로 살아가고 있다.</p>
+            <p>과거 나의 일터였던 서울의 빼곡한 일상에 비해 쉼표가 많은 이곳에서, 본질에 대한 고민은 자연스러운 일이었다. 어쩌면 이곳에서 이방인으로 살아왔기에 사람과 사람 사이의 관계에 대해 더 깊이 고찰할 수 있었는지도 모른다.</p>
+            <p>빛의 대비가 강렬하다가도, 때로는 빛이 사라져 그늘조차 사라지는 이곳의 풍경 속에서 나는 우리를 둘러싼 수많은 관계들을 바라보았다. 빛이 그늘을 만드는 공간, 바람이 지나가며 일깨워주는 서로 간의 간격, 그리고 물고기들이 만들어내는 물의 흐름이 저 너머 어딘가에 닿아 영향을 미치는 그 모든 연결 속에서 나는 그 유연한 순간들을 붙잡고 싶었다.</p>
+            <p>그래서 물성이 강한 유화를 통해 그 역설적인 유연함을 표현하고자 한다. 우리가 서로 연결되어 있다는 사실을 더 깊고 강하게 드러낼 수 있는 형상을 발견하기 위해, 나는 여전히 바라보고 사유한다.</p>
+          </div>
+
+        </div>
+
+        <em class="about-signature">— Yeo Yeoung-A</em>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row" style="margin-top:4rem;">
+      <div class="stat-item">
+        <span class="num">2010</span>
+        <span class="label">Arrived in Dublin</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">14+</span>
+        <span class="label">Years Painting Professionally</span>
+      </div>
+      <div class="stat-item">
+        <span class="num">2</span>
+        <span class="label">Classes Running (Adult + Kids)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARTIST'S STATEMENT ===== -->
+<section class="section">
+  <div class="container" style="max-width:780px;">
+    <div class="section-heading">
+      <span class="eyebrow">Artist's Statement</span>
+      <h2>On Connection</h2>
+    </div>
+    <div style="
+      background:var(--warm-white);
+      border-left:3px solid var(--terracotta);
+      padding:2.5rem 3rem;
+      border-radius:0 var(--radius) var(--radius) 0;
+    ">
+      <p style="font-family:var(--font-light);font-size:1.15rem;line-height:2;color:var(--brown-dark);margin-bottom:1.5rem;">
+        Connected. Related. Never alone. Wherever my eye falls, I find this law again.
+        A person, a plant, an animal, or a stretch of landscape — whatever I look at,
+        it never stands by itself. It touches what lies beside it, leans on it,
+        and reflects it without end.
+      </p>
+      <p style="font-family:var(--font-light);font-size:1.15rem;line-height:2;color:var(--brown-dark);margin-bottom:1.5rem;">
+        To exist as oneself is to bear the weight and the beauty of countless relations.
+        Yet we so often forget this. We live believing we are each an isolated point
+        in time and space. I want to speak of those relations — to uncover them,
+        to let the viewer notice the invisible threads once more.
+      </p>
+      <p style="font-family:var(--font-light);font-size:1.15rem;line-height:2;color:var(--brown-dark);margin-bottom:1.5rem;">
+        In my work, the main subject is only a gateway; the real narrative lies in how
+        that subject meets what surrounds it. Even when a figure appears alone on the canvas,
+        they are never truly alone. They are held by light that falls from a source we cannot see,
+        cradled by the air around them, kept company by the memories left in the spaces
+        they have passed through.
+      </p>
+      <p style="font-family:var(--font-light);font-size:1.15rem;line-height:2;color:var(--brown-dark);">
+        By holding my attention on the quiet exchange between figure and ground,
+        I try to make one thing visible: that no one is ever left to stand alone.
+        I paint the presence of the unseen, the nearness of the other,
+        and the warmth of knowing we are held.
+      </p>
+      <p style="font-family:var(--font-serif);font-style:italic;font-size:1.1rem;color:var(--terracotta);margin-top:2rem;">
+        — Yeo Yeoung-A
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS SECTION ===== -->
+<section class="section" style="background:var(--warm-white);">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">In the Studio</span>
+      <h2>How I Work</h2>
+      <p>Every painting begins with a feeling, not a subject.</p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card">
+        <div class="process-img-placeholder pi-1">Studio photo</div>
+        <p><strong>Observing.</strong> I spend a long time before a canvas doing nothing — looking, feeling, letting the subject settle into something more than what it appears to be.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-img-placeholder pi-2">Studio photo</div>
+        <p><strong>Painting.</strong> I work in layers, often across several sessions. I paint over mistakes; they build the surface. Most of the painting is invisible in the end.</p>
+      </div>
+      <div class="process-card">
+        <div class="process-img-placeholder pi-3">Studio photo</div>
+        <p><strong>Knowing when to stop.</strong> A painting is finished when adding anything more would break something. That moment is different every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDIO SECTION ===== -->
+<section class="studio-hero" id="studio">
+  <div class="container">
+    <div class="studio-hero-inner">
+      <div>
+        <span class="eyebrow">Yeo Yeoung-A Art Studio · Dublin</span>
+        <h2>The Studio</h2>
+        <p style="margin-bottom:1.2rem;">
+          My studio is a home — small, light-filled, and unhurried.
+          I teach adults who want to explore painting properly,
+          and children who are learning to truly see.
+        </p>
+        <p>
+          Classes are kept small so that every student gets real attention.
+          Beginners and experienced painters are equally welcome.
+        </p>
+      </div>
+      <img src="img/studio-main.jpg.jpg" alt="Yeo Yeoung-A Art Studio — brushes and tools" class="studio-main-img">
+    </div>
+  </div>
+</section>
+
+<!-- CLASS DETAILS -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Classes &amp; Lessons</span>
+      <h2>Join the Studio</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;">
+
+      <div class="class-detail">
+        <h4><span style="font-size:1.5rem;">🎨</span> Adult Classes</h4>
+        <ul>
+          <li>3 hours per session</li>
+          <li>Oils and acrylics · all levels welcome</li>
+          <li>Maximum 5 students — intentionally small</li>
+          <li>All materials provided</li>
+        </ul>
+        <div class="price-tag">€40 <small>per class · contact for current schedule</small></div>
+      </div>
+
+      <div class="class-detail">
+        <h4><span style="font-size:1.5rem;">🖌️</span> Kids Classes</h4>
+        <ul>
+          <li>90 minutes per session</li>
+          <li>Ages 7–12 · maximum 6 children</li>
+          <li>Learning to look — broadly, closely, and with intention</li>
+          <li>Observation, drawing, and paint: building a visual language</li>
+          <li>All materials provided</li>
+        </ul>
+        <div class="price-tag">€20 <small>per class · contact for current schedule</small></div>
+      </div>
+
+      <div class="class-detail">
+        <h4><span style="font-size:1.5rem;">✦</span> Portfolio Preparation</h4>
+        <ul>
+          <li>For students applying to art school</li>
+          <li>Recommended start: 1 year before application deadline</li>
+          <li>3 hours per session · one-to-one</li>
+          <li>Drawing, composition, and building a cohesive body of work</li>
+        </ul>
+        <div class="price-tag">€60 <small>per session · contact to discuss</small></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section-sm" style="background:var(--warm-white);">
+  <div class="container" style="max-width:720px;">
+    <div class="section-heading">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions</h2>
+    </div>
+
+    <div class="faq-item">
+      <h4 onclick="toggleFaq(this)">Do I need any experience to join adult classes? <i class="fa-solid fa-chevron-down"></i></h4>
+      <p>None at all. I genuinely enjoy teaching complete beginners — there's nothing to unlearn. You just need curiosity and willingness to be patient with yourself.</p>
+    </div>
+    <div class="faq-item">
+      <h4 onclick="toggleFaq(this)">What age are the kids classes for? <i class="fa-solid fa-chevron-down"></i></h4>
+      <p>Ages 7 to 12.</p>
+    </div>
+    <div class="faq-item">
+      <h4 onclick="toggleFaq(this)">Can I commission a painting as a gift? <i class="fa-solid fa-chevron-down"></i></h4>
+      <p>Yes. Commissions make wonderful gifts. I take a small number per year. Tell me what you have in mind — a place, a person, a feeling — and we'll discuss from there.</p>
+    </div>
+    <div class="faq-item">
+      <h4 onclick="toggleFaq(this)">How does shipping work for purchased paintings? <i class="fa-solid fa-chevron-down"></i></h4>
+      <p>I ship worldwide. Paintings are carefully rolled or boxed, and sent fully insured. Shipping costs are calculated based on destination and size, and confirmed before payment.</p>
+    </div>
+    <div class="faq-item">
+      <h4 onclick="toggleFaq(this)">Are the paintings signed and authenticated? <i class="fa-solid fa-chevron-down"></i></h4>
+      <p>Every painting is signed on the back and comes with a handwritten certificate of authenticity, including title, medium, dimensions, and year.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT / ENQUIRY ===== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Get in Touch</span>
+      <h2>Say Hello</h2>
+      <p>For class enquiries, commissions, or just to talk about painting.</p>
+    </div>
+
+    <div class="contact-section">
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" name="name" placeholder="Name" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>What's this about?</label>
+          <select name="subject">
+            <option value="">— Please select —</option>
+            <option value="adult-class">Adult Classes</option>
+            <option value="kids-class">Kids Classes</option>
+            <option value="private">Private Lessons</option>
+            <option value="commission">Commission a Painting</option>
+            <option value="purchase">Purchasing a Work</option>
+            <option value="other">Something Else</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" rows="5" placeholder="Tell me what you're looking for…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+          <i class="fa-solid fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Commission anchor -->
+    <div id="commission" style="padding-top:1px;margin-top:3rem;"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Yeo <span>Yeoung-A</span></a>
+        <p>Original paintings and art studio based in Dublin, Ireland.</p>
+        <div class="social-links" style="margin-top:1.5rem;">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop Originals</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <a href="#studio">Classes</a>
+        <a href="#commission">Commissions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Yeo Yeoung-A Art. All rights reserved.</span>
+      <span>Dublin, Ireland</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast"></div>
+
+<script src="js/cart.js"></script>
+<script>
+  function toggleFaq(el) {
+    el.closest('.faq-item').classList.toggle('open');
+  }
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = this.querySelector('[name="name"]').value;
+    this.innerHTML = `<div style="text-align:center;padding:3rem 1rem;">
+      <div style="font-size:3rem;margin-bottom:1rem;">✉️</div>
+      <h3 style="margin-bottom:0.75rem;">Thank you, ${name}!</h3>
+      <p style="color:var(--brown-mid);">I'll get back to you within 1–2 days.</p>
+    </div>`;
+  });
+</script>
+</body>
+</html>

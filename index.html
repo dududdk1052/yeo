@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yeo Yeoung-A | Artist & Art Studio · Dublin</title>
+  <meta name="description" content="Original paintings by Yeo Yeoung-A — Western fine art from Dublin. Browse the gallery, shop originals, and join the studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ---- Home-specific ---- */
+    .intro-quote {
+      padding: 4rem 0;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(196,113,75,0.05) 0%, transparent 100%);
+    }
+    .intro-quote blockquote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      color: var(--brown-dark);
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.5;
+      position: relative;
+      padding: 0 2rem;
+    }
+    .intro-quote blockquote::before {
+      content: '\201C';
+      font-size: 5rem;
+      color: var(--terracotta);
+      opacity: 0.25;
+      position: absolute;
+      top: -1.5rem; left: -0.5rem;
+      line-height: 1;
+    }
+    .intro-quote cite {
+      display: block;
+      font-style: normal;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      margin-top: 1.2rem;
+    }
+    /* Placeholder artwork images */
+    .art-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(122,92,68,0.5);
+      letter-spacing: 0.05em;
+      text-align: center;
+      padding: 1rem;
+    }
+    .ap-1 { background: linear-gradient(135deg, #E8D5C4 0%, #C4A882 100%); }
+    .ap-2 { background: linear-gradient(135deg, #D4C5B8 0%, #A89080 100%); }
+    .ap-3 { background: linear-gradient(135deg, #C8B8A2 0%, #9A8070 100%); }
+    .ap-4 { background: linear-gradient(135deg, #DDD0C4 0%, #B8A090 100%); }
+    .ap-5 { background: linear-gradient(145deg, #E4D8CC 0%, #C0A888 100%); }
+    .ap-6 { background: linear-gradient(145deg, #D8CCBE 0%, #B09878 100%); }
+    .artist-placeholder {
+      width: 100%; aspect-ratio: 3/5;
+      background: linear-gradient(160deg, #C8B4A0 0%, #8A6E58 100%);
+      display: flex; align-items: flex-end; justify-content: center;
+      border-radius: var(--radius);
+      overflow: hidden;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.9rem;
+      padding-bottom: 1.5rem;
+    }
+
+    /* Upload area indicator */
+    .upload-note {
+      background: rgba(196,113,75,0.08);
+      border: 2px dashed var(--terracotta);
+      border-radius: var(--radius);
+      padding: 1rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--terracotta);
+      text-align: center;
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Yeo <span>Yeoung-A</span></a>
+
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html#studio">Studio</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <a href="shop.html" class="cart-btn">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span class="cart-count hidden">0</span>
+      </a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="eyebrow">Fine Art · Dublin, Ireland</span>
+      <h1>No one is ever<br><em>left to stand alone.</em></h1>
+      <p class="hero-tagline">
+        Paintings about the invisible threads that hold us —
+        the light, the air, the nearness of the other.
+      </p>
+      <div class="hero-actions">
+        <a href="gallery.html" class="btn btn-primary">
+          <i class="fa-solid fa-palette"></i> View Gallery
+        </a>
+        <a href="shop.html" class="btn btn-outline">
+          <i class="fa-solid fa-bag-shopping"></i> Shop Originals
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="hero-image-frame">
+        <!-- Replace src with your featured artwork image -->
+        <div class="art-placeholder ap-1" style="aspect-ratio:4/5;">
+          Your featured artwork
+        </div>
+      </div>
+      <div class="hero-image-accent"></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ===== QUOTE ===== -->
+<div class="intro-quote">
+  <blockquote>
+    To exist as oneself is to bear the weight and the beauty of countless relations.
+    I paint the presence of the unseen, the nearness of the other,
+    and the warmth of knowing we are held.
+    <cite>— Yeo Yeoung-A</cite>
+  </blockquote>
+</div>
+
+<!-- ===== FEATURED WORKS ===== -->
+<section class="section" style="background: var(--warm-white);">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Recent Works</span>
+      <h2>From the Studio</h2>
+      <p>Each piece is a one-of-a-kind original. When it's gone, it's truly gone.</p>
+    </div>
+
+    <div class="works-grid">
+      <!-- Work 1 -->
+      <div class="work-card">
+        <div class="work-card-image">
+          <div class="art-placeholder ap-1">Artwork 1</div>
+          <div class="work-card-overlay">
+            <button class="overlay-btn" onclick="location.href='gallery.html'" title="View in Gallery">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+            <button class="overlay-btn" onclick="Cart.add({id:'w1',title:'Morning Light',price:'480',image:''})" title="Add to Cart">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+          </div>
+        </div>
+        <div class="work-card-info">
+          <h4>Morning Light</h4>
+          <p class="medium">Oil on canvas · 50×60cm</p>
+          <div class="work-card-price">
+            <span class="price">€480</span>
+            <a href="shop.html" class="btn btn-ghost" style="padding:0.4rem 1rem;font-size:0.78rem;">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work 2 -->
+      <div class="work-card">
+        <div class="work-card-image">
+          <div class="art-placeholder ap-2">Artwork 2</div>
+          <div class="work-card-overlay">
+            <button class="overlay-btn" onclick="location.href='gallery.html'" title="View in Gallery">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+            <button class="overlay-btn" onclick="Cart.add({id:'w2',title:'Still Waters',price:'620',image:''})" title="Add to Cart">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+          </div>
+        </div>
+        <div class="work-card-info">
+          <h4>Still Waters</h4>
+          <p class="medium">Acrylic on linen · 70×80cm</p>
+          <div class="work-card-price">
+            <span class="price">€620</span>
+            <a href="shop.html" class="btn btn-ghost" style="padding:0.4rem 1rem;font-size:0.78rem;">Add to Cart</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work 3 -->
+      <div class="work-card">
+        <div class="work-card-image">
+          <div class="art-placeholder ap-3">Artwork 3</div>
+          <div class="work-card-overlay">
+            <button class="overlay-btn" onclick="location.href='gallery.html'" title="View in Gallery">
+              <i class="fa-solid fa-expand"></i>
+            </button>
+          </div>
+        </div>
+        <div class="work-card-info">
+          <h4>Afternoon Reverie</h4>
+          <p class="medium">Oil on canvas · 40×50cm</p>
+          <div class="work-card-price">
+            <span class="sold-badge">Sold</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="gallery.html" class="btn btn-outline">
+        View All Works <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT STRIP ===== -->
+<section class="about-strip">
+  <div class="container">
+    <div class="about-strip-inner">
+      <div class="about-strip-image">
+        <!-- Replace with your photo -->
+        <div class="artist-placeholder">Artist portrait</div>
+        <div class="about-strip-image-badge">
+          <span class="num">14+</span>
+          <span class="label">Years Painting</span>
+        </div>
+      </div>
+
+      <div class="about-strip-text">
+        <span class="eyebrow">The Artist</span>
+        <h2>Yeo Yeoung-A —<br>A world painted<br>with warmth</h2>
+        <p>
+          Born in Korea, now rooted in the gentle light of Dublin, I paint the
+          emotions that don't fit into words. My work lives in the space between
+          memory and the present moment.
+        </p>
+        <p>
+          My studio in Dublin is both a home and a haven — a place where students
+          discover their own visual voice, and where I continue to chase mine.
+        </p>
+        <a href="about.html" class="btn btn-outline">
+          Read My Story <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STUDIO & CLASSES ===== -->
+<section class="section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">Yeo Yeoung-A Art Studio · Dublin</span>
+      <h2>Learn to Paint</h2>
+      <p>Small, personal classes for adults and children in a warm studio environment.</p>
+    </div>
+
+    <div class="classes-grid">
+      <div class="class-card">
+        <div class="class-icon">🎨</div>
+        <h4>Adult Classes</h4>
+        <p>
+          3-hour sessions in oils and acrylics. Maximum 5 students, all levels welcome.
+          €40 per class.
+        </p>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">🖌️</div>
+        <h4>Kids Classes</h4>
+        <p>
+          Teaching children to look — really look. Ages 7–12, 90 minutes,
+          maximum 6 children. €20 per class.
+        </p>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">✉️</div>
+        <h4>Portfolio Preparation</h4>
+        <p>
+          One-to-one sessions for students applying to art school.
+          Preparation begins 1 year before application. €60 per session.
+        </p>
+      </div>
+      <div class="class-card">
+        <div class="class-icon">🖼️</div>
+        <h4>Commission a Piece</h4>
+        <p>
+          Have a painting made just for you. A beloved view, a memory,
+          a feeling — I'll bring it to life on canvas.
+        </p>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="about.html#studio" class="btn btn-primary">
+        <i class="fa-solid fa-envelope"></i> Enquire About Classes
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Yeo <span>Yeoung-A</span></a>
+        <p>
+          Original paintings and art studio based in Dublin, Ireland.
+          Western fine art with a Korean heart.
+        </p>
+        <div class="social-links" style="margin-top:1.5rem;">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="gallery.html">Gallery</a>
+        <a href="shop.html">Shop Originals</a>
+        <a href="about.html">About Yeo Yeoung-A</a>
+        <a href="about.html#studio">Art Studio</a>
+      </div>
+
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <a href="about.html#studio">Adult Classes</a>
+        <a href="about.html#studio">Kids Classes</a>
+        <a href="about.html#commission">Commissions</a>
+        <a href="about.html#contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 Yeo Yeoung-A. All rights reserved.</span>
+      <span>Dublin, Ireland</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast"></div>
+
+<script src="js/cart.js"></script>
+</body>
+</html>
